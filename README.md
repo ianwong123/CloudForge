@@ -43,17 +43,17 @@ This project demonstrates building a production-ready cloud platform using Kuber
 
 | Component | Technology | Purpose | Web UI |
 |-----------|------------|---------|---------|
-| **Container Orchestration** | Kubernetes (KIND) | Container management | ✅ K8s Dashboard |
-| **Object Storage** | MinIO | S3-compatible storage | ✅ MinIO Console |
-| **Database** | PostgreSQL | Relational database | ✅ pgAdmin |
-| **Cache** | Redis | In-memory cache | ✅ Redis Commander |
-| **Message Queue** | RabbitMQ | Async messaging | ✅ Management Plugin |
-| **Load Balancer** | Nginx Ingress | Traffic routing | ⚙️ Config-based |
-| **Monitoring** | Prometheus | Metrics collection | ⚙️ Basic UI |
-| **Visualization** | Grafana | Dashboards & alerts | ✅ Full Dashboard |
-| **Storage** | Local Persistent Volumes | Data persistence | ⚙️ K8s managed |
+| **Container Orchestration** | Kubernetes (KIND) | Container management |  K8s Dashboard |
+| **Object Storage** | MinIO | S3-compatible storage |  MinIO Console |
+| **Database** | PostgreSQL | Relational database |  pgAdmin |
+| **Cache** | Redis | In-memory cache |  Redis Commander |
+| **Message Queue** | RabbitMQ | Async messaging |  Management Plugin |
+| **Load Balancer** | Nginx Ingress | Traffic routing |  Config-based |
+| **Monitoring** | Prometheus | Metrics collection |  Basic UI |
+| **Visualization** | Grafana | Dashboards & alerts |  Full Dashboard |
+| **Storage** | Local Persistent Volumes | Data persistence |  K8s managed |
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### Required Tools
 - **KIND** (Kubernetes in Docker)
@@ -66,14 +66,6 @@ This project demonstrates building a production-ready cloud platform using Kuber
 - 8GB+ RAM recommended
 - 20GB+ free disk space
 - Docker Desktop or Docker Engine
-
-### Verification Commands
-```bash
-# Check installations
-kind version
-kubectl version --client
-docker --version
-```
 
 ## Implementation Phases
 
