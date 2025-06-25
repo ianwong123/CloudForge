@@ -3,7 +3,7 @@ A complete cloud infrastructure platform built on Kubernetes
 
 ## Project Overview
 
-This project demonstrates building a production-ready cloud platform using Kubernetes, featuring multiple services that replicate AWS-like functionality. No custom API development required - leveraging proven open-source solutions with focus on infrastructure, monitoring, and DevOps practices.
+This project demonstrates building a production-ready cloud platform using Kubernetes, featuring multiple services that replicate AWS-like functionality. Leveraging open-source solutions with focus on infrastructure, monitoring, and DevOps practices.
 
 ## Architecture
 
@@ -29,7 +29,7 @@ This project demonstrates building a production-ready cloud platform using Kuber
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Kubernetes Cluster                          │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │   Your      │  │  Message    │  │    Management Web UIs   │  │
+│  │   Your      │  │  Message    │  │  • Management Web UIs   │  │
 │  │Applications │  │  Queue      │  │  • K8s Dashboard        │  │
 │  │             │  │ (RabbitMQ)  │  │  • MinIO Console        │  │
 │  │ • Web Apps  │  │             │  │  • pgAdmin              │  │
@@ -61,11 +61,6 @@ This project demonstrates building a production-ready cloud platform using Kuber
 - **Docker** (Container runtime)
 - **WSL2** (Windows users only)
 - **Helm** (Package manager - optional)
-
-### System Requirements
-- 8GB+ RAM recommended
-- 20GB+ free disk space
-- Docker Desktop or Docker Engine
 
 ## Implementation Phases
 
@@ -190,4 +185,4 @@ By completing this project, to gain hands-on experience with:
 - Database as a Service concepts
 - Message queue architectures
 - Load balancing and traffic management
-- Metrics collection and visualization
+- Metrics collection and visualisation
