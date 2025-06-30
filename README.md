@@ -161,6 +161,12 @@ CloudForge/
     ├── connectivity-tests/
     └── performance-tests/
 ```
+# High-Level User Expectations
+This project follows an AGILE approach. What do i expect as an end-user from a platform like this?
+
+1. A unified dashboard to access all services (MinIO, Redis, Postgres, etc.).
+2. One command to start/stop the entire platform.
+3. Everything pre-connected (e.g., Postgres automatically talks to Redis).
 
 ## Learning Objectives
 
