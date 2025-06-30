@@ -71,7 +71,7 @@ This project demonstrates building a production-ready cloud platform using Kuber
 - [ ] Deploy MinIO (Object Storage) with persistent volumes
 - [ ] Test basic functionality, configure MinIO ingress and test file upload/download
 
-**Deliverables:** Working object storage with web interface<br>
+**Deliverables:** A working Kubernetes cluster with MinIO object storage, and a dashboard ready for future services<br>
 **Success Criteria:** Can upload/download files via MinIO console
 
 ### Phase 2: Database & Cache Services
@@ -161,7 +161,7 @@ CloudForge/
     ├── connectivity-tests/
     └── performance-tests/
 ```
-# High-Level User Expectations
+## High-Level User Expectations
 This project follows an AGILE approach. What do i expect as an end-user from a platform like this?
 
 1. A unified dashboard to access all services (MinIO, Redis, Postgres, etc.).
