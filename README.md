@@ -3,8 +3,7 @@ A complete cloud infrastructure platform built on Kubernetes
 
 ## Project Overview
 
-This project demonstrates building a production-ready cloud platform using Kubernetes, featuring multiple services that replicate AWS-like functionality. Leveraging open-source solutions with focus on infrastructure, monitoring, and DevOps practices.
-
+CloudForge is a project focused on building a self-hosted, cloud-like platform using Kubernetes, designed to replicate key AWS services through open-source tools. The goal is to simulate real-world infrastructure environments with emphasis on container orchestration, service integration, monitoring, and DevOps best practices. While not intended for public production use, it serves as an internal platform to understand and experiment with scalable infrastructure in a resource-conscious, student-friendly setup.
 ## Architecture
 
 ```
