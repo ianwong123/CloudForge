@@ -1,0 +1,49 @@
+# Create namespaces 
+
+# ingress-nginx setup using helm, refer to deploy-phase1.sh
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.3/deploy/static/provider/cloud/deploy.yaml
+
+# k8 dashboard 
+kind: Namespace
+apiVersion: v1
+metadata: 
+  name: kubernetes-dashboard
+  labels: 
+    name: kubernetes-dashboard
+    purpose: admin-tools
+---
+# MinIO object storage
+kind: Namespace 
+apiVersion: v1
+metadata: 
+  name: storage
+  labels: 
+    name: storage 
+    purpose: infrastructure
+---
+# PostgreSQL, Redis
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: database
+  labels:
+    name: database
+    purpose: infrastructure
+---
+# RabbitMQ
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: messaging
+  labels:
+    name: messaging
+    purpose: infrastructure
+---
+# Prometheus, Grafana, AlertManager
+kind: Namespace 
+apiVersion: v1
+metadata:
+  name: monitoring
+  labels: 
+    name: monitoring
+    purpose: infrastructure
