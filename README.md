@@ -3,7 +3,7 @@ A complete cloud infrastructure platform built on Kubernetes
 
 ## Project Overview
 
-CloudForge is a project focused on building a self-hosted, cloud-like platform using Kubernetes, designed to replicate key AWS services through open-source tools. The goal is to simulate real-world infrastructure environments with emphasis on container orchestration, service integration, monitoring, and DevOps best practices. While not intended for public production use, it serves as an internal platform to understand and experiment with scalable infrastructure in a resource-conscious, student-friendly setup.
+CloudForge is a project focused on building a self-hosted, cloud-like platform using Kubernetes, designed to replicate key cloud services through open-source tools. The goal is to simulate real-world infrastructure environments with emphasis on container orchestration, service integration, monitoring, and DevOps best practices. While not intended for public production use, it serves as an internal platform to understand and experiment with scalable infrastructure in a resource-conscious, student-friendly setup.
 ## Architecture
 
 ```
@@ -135,30 +135,34 @@ CloudForge/
 │   ├── architecture.md
 │   ├── deployment-guide.md
 │   └── troubleshooting.md
-├── manifests/
-│   ├── 01-namespaces/
-│   ├── 02-storage/
-│   │   ├── minio/
-│   │   ├── postgresql/
-│   │   └── redis/
-│   ├── 03-messaging/
-│   │   └── rabbitmq/
-│   ├── 04-ingress/
-│   │   └── nginx/
-│   └── 05-monitoring/
-│       ├── prometheus/
-│       └── grafana/
-├── configs/
-│   ├── grafana-dashboards/
-│   ├── prometheus-rules/
-│   └── nginx-configs/
+├── database/
+│   ├── /
+│   ├── /
+│   │   ├── /
+│   │   ├── /
+│   │   └── /
+├── ingress/
+│   ├── /
+├── messsaging/
+│   ├── rabbitmq/
+│   │   └── /
+├── monitoring/
+│   ├── /
+├── namespaces/
+│   ├── namespaces.yaml
+│   ├── 
+├── prerequisites/
+│   ├── kind-cluster-config.yaml
 ├── scripts/
-│   ├── setup-cluster.sh
-│   ├── deploy-stack.sh
-│   └── cleanup.sh
-└── tests/
-    ├── connectivity-tests/
-    └── performance-tests/
+│   ├── deploy/
+│   │   ├── deploy-phase1.sh
+│   ├── setup/
+│   │   ├── setup-cluster.sh
+│   │   ├── setup-helm.sh
+│   │   └── /
+├── storage/
+│   ├── /
+
 ```
 ## High-Level User Expectations
 This project follows an AGILE approach. What do i expect as an end-user from a platform like this?
