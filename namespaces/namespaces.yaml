@@ -11,6 +11,17 @@ metadata:
   labels: 
     name: kubernetes-dashboard
     purpose: admin-tools
+    component: 
+---
+# NGINX Ingress Controller
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+  labels:
+    name: ingress-nginx
+    purpose: networking
+    component: infrastructure
 ---
 # MinIO object storage
 kind: Namespace 
@@ -18,17 +29,30 @@ apiVersion: v1
 metadata: 
   name: storage
   labels: 
-    name: storage 
-    purpose: infrastructure
+    name: minio
+    purpose: storage
+    component: infrastructure
 ---
-# PostgreSQL, Redis
-kind: Namespace
+# Redis Cache
 apiVersion: v1
+kind: Namespace
 metadata:
-  name: database
+  name: redis
   labels:
-    name: database
-    purpose: infrastructure
+    name: redis
+    purpose: cache
+    component: infrastructure
+
+---
+# PostgreSQL Database
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: postgresql
+  labels:
+    name: postgresql
+    purpose: database
+    component: infrastructure
 ---
 # RabbitMQ
 kind: Namespace
@@ -39,11 +63,12 @@ metadata:
     name: messaging
     purpose: infrastructure
 ---
-# Prometheus, Grafana, AlertManager
-kind: Namespace 
+# Monitoring (Prometheus, Grafana, AlertManager)
 apiVersion: v1
+kind: Namespace
 metadata:
   name: monitoring
   labels: 
     name: monitoring
-    purpose: infrastructure
+    purpose: observability
+    component: infrastructure
