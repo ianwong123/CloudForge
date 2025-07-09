@@ -11,7 +11,7 @@ metadata:
   labels: 
     name: kubernetes-dashboard
     purpose: admin-tools
-    component: 
+    component: infrastructure
 ---
 # NGINX Ingress Controller
 apiVersion: v1
@@ -71,4 +71,14 @@ metadata:
   labels: 
     name: monitoring
     purpose: observability
+    component: infrastructure
+---
+# Cert Manager
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+  labels:
+    name: cert-manager
+    purpose: security
     component: infrastructure
