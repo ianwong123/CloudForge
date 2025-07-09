@@ -34,10 +34,19 @@ helm repo add minio https://charts.min.io/
 # Database storage repo for future phases (Redis and PostgreSQL)
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
-# Monitoring repo for future phases
+# Monitoring repo 
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 
+# Cert-Manager repo
+helm repo add jetstack https://charts.jetstack.io --force-update
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.18.2 \
+  --set crds.enabled=true
+  
 # Update repositories
 echo "Updating Helm repositories..."
 helm repo update
