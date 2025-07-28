@@ -6,15 +6,15 @@ controller:
     kubernetes.io/os: linux
     node-type: ingress
   
-  hostPort:
-    enabled: true
-
   metrics:
     enabled: true
     serviceMonitor:
       enabled: true
       additionalLabels:
         release: prometheus
+
+  admissionWebhooks:
+    enabled: true
 
   resource:
     requests:
