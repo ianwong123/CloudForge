@@ -24,4 +24,6 @@ settings:
   clusterName: CloudForge
   itemsPerPage: 50
   resourceAutoRefreshTimeInterval: 5
-  
+
+kong:
+ enabled: false
