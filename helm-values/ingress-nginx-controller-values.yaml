@@ -1,0 +1,30 @@
+controller:
+  service:
+    type: NodePort
+  
+  nodeSelector:
+    kubernetes.io/os: linux
+    node-type: ingress
+  
+  hostPort:
+    enabled: true
+
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      additionalLabels:
+        release: prometheus
+
+  resource:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+  podDisruptionBUdget:
+    minAvailable: 1
+
+  replicaCount: 2

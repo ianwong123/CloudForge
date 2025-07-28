@@ -1,0 +1,27 @@
+nodeSelector:
+  node-type: general
+
+metricsScraper:
+  enabled: true
+
+metrics-server:
+  enabled: true
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 250Mi
+
+service:
+  type: ClusterIP
+
+protocolHttp: false
+
+settings: 
+  clusterName: CloudForge
+  itemsPerPage: 50
+  resourceAutoRefreshTimeInterval: 5
+  
