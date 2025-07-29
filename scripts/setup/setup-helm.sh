@@ -38,14 +38,14 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 
-# Cert-Manager repo
-helm repo add jetstack https://charts.jetstack.io --force-update
-helm install \
-  cert-manager jetstack/cert-manager \
-  --namespace cert-manager \
-  --create-namespace \
-  --version v1.18.2 \
-  --set crds.enabled=true
+# Cert-Manager repo (For future if public domain is used)
+#helm repo add jetstack https://charts.jetstack.io --force-update
+#helm install \
+#  cert-manager jetstack/cert-manager \
+#  --namespace cert-manager \
+#  --create-namespace \
+#  --version v1.18.2 \
+#  --set crds.enabled=true
   
 # Update repositories
 echo "Updating Helm repositories..."
