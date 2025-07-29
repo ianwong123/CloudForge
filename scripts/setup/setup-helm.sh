@@ -38,6 +38,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 
+# Last update 29.7.2025
 # Cert-Manager repo (For future if public domain is used)
 #helm repo add jetstack https://charts.jetstack.io --force-update
 #helm install \
@@ -46,6 +47,12 @@ helm repo add grafana https://grafana.github.io/helm-charts
 #  --create-namespace \
 #  --version v1.18.2 \
 #  --set crds.enabled=true
+
+# Updated 29.7.2025 
+# MetalLB installation
+# Ref: https://metallb.io/installation/
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.2/config/manifests/metallb-native.yaml
+
   
 # Update repositories
 echo "Updating Helm repositories..."
