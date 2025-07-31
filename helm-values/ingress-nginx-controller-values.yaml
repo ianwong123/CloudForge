@@ -1,6 +1,6 @@
 controller:
   service:
-    type: NodePort
+    type: LoadBalancer
   
   nodeSelector:
     kubernetes.io/os: linux
