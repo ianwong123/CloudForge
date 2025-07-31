@@ -13,7 +13,8 @@ echo "Generating self signed certificate secrets..."
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
   -keyout dashboard-tls.key \
   -out dashboard-tls.crt \
-  -subj "/C=US/ST=State/L=City/O=Organization/CN=dashboard.cloudforge.local"
+  -subj "/CN=dashboard.cloudforge.local" \
+  -addext "subjectAltName = DNS:dashboard.cloudforge.local" \
 
 cat dashboard-tls.crt | base64 -w0
 echo ""
