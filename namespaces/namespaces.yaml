@@ -1,8 +1,5 @@
 # Create namespaces 
 
-# ingress-nginx setup using helm, refer to deploy-phase1.sh
-# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.3/deploy/static/provider/cloud/deploy.yaml
-
 # k8 dashboard 
 kind: Namespace
 apiVersion: v1
@@ -74,11 +71,11 @@ metadata:
     component: infrastructure
 ---
 # Cert Manager
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cert-manager
-  labels:
-    name: cert-manager
-    purpose: security
-    component: infrastructure
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: cert-manager
+#  labels:
+#    name: cert-manager
+#    purpose: security
+#    component: infrastructure
