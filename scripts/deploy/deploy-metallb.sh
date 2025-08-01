@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 # Deploy Phase 1: Foundational Infrastructure
-# K8s Dashboard 
+# MetalLB
 #
-# Ref: https://github.com/kubernetes/dashboard
+# Ref: https://metallb.io/installation/
 
 # Absolute path to the script directory
 # This allows the script to be run from any directory
@@ -54,7 +54,7 @@ echo "MetalLB deployed"
 echo ""
 
 
-echo "Phase 1 deployment complete."
+echo "Phase 1 deployment complete"
 
 
 
