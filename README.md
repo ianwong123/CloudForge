@@ -28,7 +28,7 @@ CloudForge is a project focused on building a self-hosted, cloud-like platform u
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Kubernetes Cluster                          │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │   Your      │  │  Message    │  │  • Management Web UIs   │  │
+│  │             │  │  Message    │  │  • Management Web UIs   │  │
 │  │Applications │  │  Queue      │  │  • K8s Dashboard        │  │
 │  │             │  │ (RabbitMQ)  │  │  • MinIO Console        │  │
 │  │ • Web Apps  │  │             │  │  • pgAdmin              │  │
@@ -47,19 +47,22 @@ CloudForge is a project focused on building a self-hosted, cloud-like platform u
 | **Database** | PostgreSQL | Relational database |  pgAdmin |
 | **Cache** | Redis | In-memory cache |  Redis Commander |
 | **Message Queue** | RabbitMQ | Async messaging |  Management Plugin |
-| **Load Balancer** | Nginx Ingress | Traffic routing |  Config-based |
+| **Ingress Controller** | Nginx Ingress | Traffic routing |  Config-based |
 | **Monitoring** | Prometheus | Metrics collection |  Basic UI |
 | **Visualization** | Grafana | Dashboards & alerts |  Full Dashboard |
 | **Storage** | Local Persistent Volumes | Data persistence |  K8s managed |
+| **Load Balancing** | MetalLB | Provide type LB for Ingress |   |
+| **GitOps** | ArgoCD | To use Git as single source of truth | ArgoCD UI  |
+
 
 ## Prerequisites
 
-### Required Tools
+### Tools
 - **KIND** (Kubernetes in Docker)
 - **kubectl** (Kubernetes CLI)
 - **Docker** (Container runtime)
-- **WSL2** (Windows users only)
-- **Helm** (Package manager - optional)
+- **WSL2**
+- **Helm** (Package manager)
 
 ## Implementation Phases
 
@@ -67,6 +70,9 @@ CloudForge is a project focused on building a self-hosted, cloud-like platform u
 - [ ] Set up KIND cluster with ingress-ready configuration
 - [ ] Deploy Kubernetes Dashboard
 - [ ] Create namespaces and basic networking and RBAC basics
+- [ ] Set up Nginx Ingress Controller
+- [ ] Configure routing and load balancing
+- [ ] Configure custom domains (*.local)
 - [ ] Deploy MinIO (Object Storage) with persistent volumes
 - [ ] Test basic functionality, configure MinIO ingress and test file upload/download
 
@@ -89,9 +95,6 @@ CloudForge is a project focused on building a self-hosted, cloud-like platform u
 ### Phase 3: Communication & Traffic Management 
 - [ ] Deploy RabbitMQ message queue
 - [ ] Configure RabbitMQ management interface
-- [ ] Set up Nginx Ingress Controller
-- [ ] Configure routing and load balancing
-- [ ] Configure custom domains (*.local)
 - [ ] Implement service discovery
 - [ ] **Deploy a test application to verify end-to-end flow** (Key milestone)
 
@@ -135,6 +138,11 @@ CloudForge/
 │   ├── architecture.md
 │   ├── deployment-guide.md
 │   └── troubleshooting.md
+│   └── NETWORKING_ISSUE.md
+├── helm-values/
+│   ├── ingress-nginx-controller-values.yaml
+│   ├── kubernetes-dashboard-values.yaml
+│   └── metallb-values.yaml
 ├── database/
 │   ├── /
 │   ├── /
@@ -142,20 +150,25 @@ CloudForge/
 │   │   ├── /
 │   │   └── /
 ├── ingress/
-│   ├── /
+│   ├── ingress.yaml
+├── kind-cluster-config/
+│   ├── kind-cluster-config.yaml
 ├── messsaging/
 │   ├── rabbitmq/
 │   │   └── /
+├── metallb/
+│   ├── metallb-ip-pool.yaml
 ├── monitoring/
 │   ├── /
 ├── namespaces/
 │   ├── namespaces.yaml
-│   ├── 
-├── prerequisites/
-│   ├── kind-cluster-config.yaml
+├── rbac/
+│   ├── kdashboard.yaml/
 ├── scripts/
 │   ├── deploy/
-│   │   ├── deploy-phase1.sh
+│   │   ├── deploy-ingress-nginx.sh
+│   │   ├── deploy-k8-dashboard.sh
+│   │   ├── deploy-metallb.sh
 │   ├── setup/
 │   │   ├── setup-cluster.sh
 │   │   ├── setup-helm.sh
@@ -165,7 +178,7 @@ CloudForge/
 
 ```
 ## High-Level User Expectations
-This project follows an AGILE approach. What do i expect as an end-user from a platform like this?
+This project follows an AGILE approach. 
 
 1. A unified dashboard to access all services (MinIO, Redis, Postgres, etc.).
 2. One command to start/stop the entire platform.
@@ -177,10 +190,11 @@ By completing this project, to gain hands-on experience with:
 
 ### **Kubernetes Concepts**
 - Deployments, Services, and Ingress
-- ConfigMaps and Secrets management
+- Secrets management
 - Persistent Volumes and Storage Classes
 - Namespaces and Resource Quotas
 - Horizontal Pod Autoscaling
+- Helm
 
 ### **DevOps Practices**
 - Infrastructure as Code
