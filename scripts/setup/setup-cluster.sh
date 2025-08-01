@@ -7,7 +7,7 @@ ROOT_DIR="$SCRIPT_DIR/../.."
 
 # Load environment variables
 CLUSTER_NAME='cloudforge'
-CONFIG_PATH="$ROOT_DIR/prerequisites/kind-cluster-config.yaml"
+CONFIG_PATH="$ROOT_DIR/kind-cluster-config/kind-cluster-config.yaml"
 
 # Check if cluster already exists
 if kind get clusters | grep -q "$CLUSTER_NAME"; then
