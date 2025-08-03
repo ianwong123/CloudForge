@@ -59,7 +59,6 @@ $ curl -v http://dashboard.cloudforge.local
 
 
 ## Solution 
-_To be attempted and updated_
 
 The fundamental solution would be to **bridge WSL2 and Windows LAN** to elimated NAT isolation. By assigning WSL2 with a static ip from the LAN network range, direct communication between Windows and WSL2 can take place. 
 
