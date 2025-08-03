@@ -63,12 +63,14 @@ $ curl -v http://dashboard.cloudforge.local
 The fundamental solution would be to **bridge WSL2 and Windows LAN** to elimated NAT isolation. By assigning WSL2 with a static ip from the LAN network range, direct communication between Windows and WSL2 can take place. 
 
 A custom bridge is created on adapter vEthernet (WSL Hyper-V firewall). The adapter will act as a bridge bewtween Windows and WSL2.
+
 Then assigning a static ip to WSL2
 
-Windows WSL Bridge assigned static ip: 192.168.80.1
-WSL assigned static ip: 192.168.80.2
+Windows WSL Bridge assigned static ip: `192.168.80.1`
 
-The old NAT ip was replaced and removed with the static ip 192.168.80.2
+WSL assigned static ip: `192.168.80.2`
+
+The old NAT ip was replaced and removed with the static ip `192.168.80.2`
 
 ```bash
 @echo off
@@ -106,6 +108,7 @@ pause
 After succesful configuration, Windows was able to reach WSL2 but WSL2 was still unable to reach Windows.
 
 Temporarily disabling Windows firewall seem to work since the virtual adapter seems to be treated as a public network.
+
 Firewall rules were created instead of changing the network profile
 
 ```bash
@@ -119,7 +122,7 @@ netsh advfirewall firewall add rule name="WSL2-Outbound" dir=out action=allow pr
 netsh advfirewall firewall add rule name="WSL2-ICMP" dir=in action=allow protocol=icmpv4 remoteip=192.168.80.0/24
 ```
 
-MetalLB then assigns ip pool of **192.168.80.10 - 192.168.80.20** to the LoadBalancer service.
+MetalLB then assigns ip pool of `192.168.80.10 - 192.168.80.20` to the LoadBalancer service.
 Windows and WSL2 are able to communicate directly
 
 ## Further Notes
@@ -140,10 +143,11 @@ ping 192.168.80.10
 # Result: Destination Host Unreachable
 ```
 
-The WSL2 machine has **NO** network interface binded to the ip **192.168.80.10**.
+The WSL2 machine has **NO** network interface binded to the ip `192.168.80.10`.
+
 It exists in the MetalLB's ARP table but not on any real interface on where WSL2 can route to.
 
 
 ## Last Updated
-1.8.2025
-3.8.2025
+- 1.8.2025
+- 3.8.2025
