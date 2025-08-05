@@ -70,6 +70,15 @@ metadata:
     purpose: observability
     component: infrastructure
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+  labels:
+    name: argocd
+    purpose: gitops
+    component: infrastructure
+---
 # Cert Manager
 #apiVersion: v1
 #kind: Namespace
