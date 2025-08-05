@@ -53,6 +53,7 @@ CloudForge is a project focused on building a self-hosted, cloud-like platform u
 | **Storage** | Local Persistent Volumes | Data persistence |  K8s managed |
 | **Load Balancing** | MetalLB | Provide type LB for Ingress |   |
 | **GitOps** | ArgoCD | To use Git as single source of truth | ArgoCD UI  |
+| **Secret Management** | Sealed Secrets | Secrets Encryption |   |
 
 
 ## Prerequisites
