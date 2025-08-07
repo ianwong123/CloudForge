@@ -38,6 +38,10 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 
+# Sealed Secrets repo
+helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
+
+
 # Last update 29.7.2025
 # Cert-Manager repo (For future if public domain is used)
 #helm repo add jetstack https://charts.jetstack.io --force-update
