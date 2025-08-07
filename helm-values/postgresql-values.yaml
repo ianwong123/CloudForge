@@ -1,12 +1,11 @@
-global: 
-  postgresql:
-    auth: 
-      existingSecret: postgresql-secret
-    secretkeys:
-      adminPasswordKey: POSTGRES_PASSWORD
-      userPasswordKey: POSTGRES_PASSWORD
-    database: POSTGRES_DB
-    username: POSTGRES_USER
+postgresql:
+  auth: 
+    existingSecret: postgresql-secret
+  secretkeys:
+    adminPasswordKey: POSTGRES_PASSWORD
+    userPasswordKey: POSTGRES_PASSWORD
+  database: POSTGRES_DB
+  username: POSTGRES_USER
       
 service: 
   type: ClusterIP
@@ -16,11 +15,11 @@ service:
 primary:
   resources:
     requests: 
-      cpu: "128Mi"
-      memory: "100m"
+      cpu: "50m"
+      memory: "128Mi"
     limits:
-      cpu: "1Gi"
-      memory: "1000m"
+      cpu: "100m"
+      memory: "256Mi"
   persistence:
     enabled: true
     size: "20Gi"
@@ -30,6 +29,13 @@ primary:
   livenessProbe: 
     enabled: true
     initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+  
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 5
     periodSeconds: 10
     timeoutSeconds: 5
     failureThreshold: 6
