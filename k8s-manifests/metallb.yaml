@@ -4,7 +4,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: metallb-controller
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: metallb-speaker
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: metallb-webhook-cert
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -45,7 +45,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: metallb-excludel2
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -76,7 +76,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: metallb-frr-startup
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -520,7 +520,7 @@ spec:
       clientConfig:
         service:
           name: metallb-webhook-service
-          namespace: metallb
+          namespace: metallb-system
           path: /convert
       conversionReviewVersions:
         - v1beta1
@@ -1605,7 +1605,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: metallb-controller
-  namespace: metallb
+  namespace: metallb-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -1625,7 +1625,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: metallb-speaker
-  namespace: metallb
+  namespace: metallb-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -1636,7 +1636,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: metallb-pod-lister
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -1680,7 +1680,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: metallb-controller
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -1729,7 +1729,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: metallb-pod-lister
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -1749,7 +1749,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: metallb-controller
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -1769,7 +1769,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: metallb-webhook-service
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -1790,7 +1790,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: metallb-speaker
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -2060,7 +2060,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: metallb-controller
-  namespace: "metallb"
+  namespace: "metallb-system"
   labels:
     helm.sh/chart: metallb-0.15.2
     app.kubernetes.io/name: metallb
@@ -2164,7 +2164,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta2-bgppeer
   failurePolicy: Fail
   name: bgppeervalidationwebhook.metallb.io
@@ -2184,7 +2184,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta1-ipaddresspool
   failurePolicy: Fail
   name: ipaddresspoolvalidationwebhook.metallb.io
@@ -2204,7 +2204,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta1-bgpadvertisement
   failurePolicy: Fail
   name: bgpadvertisementvalidationwebhook.metallb.io
@@ -2224,7 +2224,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta1-community
   failurePolicy: Fail
   name: communityvalidationwebhook.metallb.io
@@ -2244,7 +2244,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta1-bfdprofile
   failurePolicy: Fail
   name: bfdprofilevalidationwebhook.metallb.io
@@ -2264,7 +2264,7 @@ webhooks:
   clientConfig:
     service:
       name: metallb-webhook-service
-      namespace: metallb
+      namespace: metallb-system
       path: /validate-metallb-io-v1beta1-l2advertisement
   failurePolicy: Fail
   name: l2advertisementvalidationwebhook.metallb.io
