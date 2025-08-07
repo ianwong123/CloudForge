@@ -1,0 +1,1303 @@
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubernetes-dashboard-metrics-server
+  namespace: kubernetes-dashboard
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: kubernetes-dashboard/templates/rbac/api/serviceaccount.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-api
+---
+# Source: kubernetes-dashboard/templates/rbac/metrics-scraper/serviceaccount.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-metrics-scraper
+---
+# Source: kubernetes-dashboard/templates/rbac/web/serviceaccount.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-web
+---
+# Source: kubernetes-dashboard/templates/secrets/csrf.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-csrf
+data:
+  private.key: "QW9xa0V2Z0Nkb0phek9NWVhhOVBaV2Nhc0NEQmdvamNSZFhGTHBmSnpCYVdpbEtydHQvYVNiTG5sWVhub280ejBnNDdNck8zUmEycHFqME9TZmtwTkhwU2x1ZjB1VUtrTm9tSFplQVJZSGZ2SE01UENNNGkvM1FoZXhweVJncnFNUHFBc2Q1TW1TZmE4SmVFUUpUelJXYjkvMGd5VnhPbE5iM2JRdUpxN2tQaGNFNTY2T09XT0VPYkF2RmZ1WU9NTDR1NkpXUW1vTitpL21uZkhLYmJ3bXJFMlpFK3gxTmgrelM3OWNWYVNpb2YzSUcvV2xrSk11QmhtcCtIQndlY1BrMld6OHZ2SGhNN2FaUHMyWnpWZzlBZW5nZ3JTS3RJUVFtaHBja3NaUUZRYmY3WHY1aEMxZmNWM3QyMVVuVytXR2VDc1l2TElqcEFtU1lDam9qK3F3PT0="
+---
+# Source: kubernetes-dashboard/templates/config/settings.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-web-settings
+data:
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/clusterrole-aggregated-reader.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:metrics-server-aggregated-reader
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"
+    rbac.authorization.k8s.io/aggregate-to-view: "true"
+rules:
+  - apiGroups:
+      - metrics.k8s.io
+    resources:
+      - pods
+      - nodes
+    verbs:
+      - get
+      - list
+      - watch
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/clusterrole.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:kubernetes-dashboard-metrics-server
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+rules:
+  - apiGroups:
+    - ""
+    resources:
+    - nodes/metrics
+    verbs:
+    - get
+  - apiGroups:
+    - ""
+    resources:
+      - pods
+      - nodes
+      - namespaces
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+---
+# Source: kubernetes-dashboard/templates/rbac/metrics-scraper/clusterrole.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-metrics-scraper
+rules:
+  # Allow Metrics Scraper to get metrics from the Metrics server
+  - apiGroups: [ "metrics.k8s.io" ]
+    resources: [ "pods", "nodes" ]
+    verbs: [ "get", "list", "watch" ]
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/clusterrolebinding-auth-delegator.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard-metrics-server:system:auth-delegator
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:auth-delegator
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-metrics-server
+    namespace: kubernetes-dashboard
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: system:kubernetes-dashboard-metrics-server
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:kubernetes-dashboard-metrics-server
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-metrics-server
+    namespace: kubernetes-dashboard
+---
+# Source: kubernetes-dashboard/templates/rbac/metrics-scraper/clusterrolebinding.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-metrics-scraper
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubernetes-dashboard-metrics-scraper
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+---
+# Source: kubernetes-dashboard/templates/rbac/api/role.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-api
+rules:
+    # Allow Dashboard API to get metrics from metrics-scraper.
+  - apiGroups: [ "" ]
+    resources: [ "services/proxy" ]
+    resourceNames: [ "kubernetes-dashboard-metrics-scraper", "http:kubernetes-dashboard-metrics-scraper" ]
+    verbs: [ "get" ]
+---
+# Source: kubernetes-dashboard/templates/rbac/web/role.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-web
+rules:
+    # Allow Dashboard Web to get and update 'kubernetes-dashboard-settings' config map.
+  - apiGroups: [ "" ]
+    resources: [ "configmaps" ]
+    resourceNames: [ "kubernetes-dashboard-web-settings" ]
+    verbs: [ "get", "update" ]
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: kubernetes-dashboard-metrics-server-auth-reader
+  namespace: kube-system
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: extension-apiserver-authentication-reader
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-metrics-server
+    namespace: kubernetes-dashboard
+---
+# Source: kubernetes-dashboard/templates/rbac/api/rolebinding.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: kubernetes-dashboard-api
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-api
+---
+# Source: kubernetes-dashboard/templates/rbac/web/rolebinding.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+  annotations:
+    
+  name: kubernetes-dashboard-web
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: kubernetes-dashboard-web
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-dashboard-web
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-dashboard-metrics-server
+  namespace: kubernetes-dashboard
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+      appProtocol: https
+  selector:
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+---
+# Source: kubernetes-dashboard/templates/services/api.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-api
+    app.kubernetes.io/version: 1.13.0
+    app.kubernetes.io/component: api
+  annotations:
+    
+  name: kubernetes-dashboard-api
+spec:
+  type: ClusterIP
+  ports:
+    - name: api
+      port: 8000
+      protocol: TCP
+      
+      
+      
+  
+  selector:
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-api
+---
+# Source: kubernetes-dashboard/templates/services/auth.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-auth
+    app.kubernetes.io/version: 1.3.0
+    app.kubernetes.io/component: auth
+  annotations:
+    
+  name: kubernetes-dashboard-auth
+spec:
+  type: ClusterIP
+  ports:
+    - name: auth
+      port: 8000
+      protocol: TCP
+      
+      
+      
+  
+  selector:
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-auth
+---
+# Source: kubernetes-dashboard/templates/services/metrics-scraper.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-metrics-scraper
+    app.kubernetes.io/version: 1.2.2
+    app.kubernetes.io/component: metrics-scraper
+  annotations:
+    
+  name: kubernetes-dashboard-metrics-scraper
+spec:
+  type: ClusterIP
+  ports:
+    # Name is intentionally not used here as it breaks the connection between API <-> Scraper
+    # Named ports have an issue when trying to connect through in-cluster service proxy.
+    - port: 8000
+      protocol: TCP
+      
+      
+      
+  
+  selector:
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-metrics-scraper
+---
+# Source: kubernetes-dashboard/templates/services/web.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-web
+    app.kubernetes.io/version: 1.7.0
+    app.kubernetes.io/component: web
+  annotations:
+    
+  name: kubernetes-dashboard-web
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 8000
+      protocol: TCP
+      
+      
+      
+  
+  selector:
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-web
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-dashboard-metrics-server
+  namespace: kubernetes-dashboard
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: metrics-server
+      app.kubernetes.io/instance: kubernetes-dashboard
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: metrics-server
+        app.kubernetes.io/instance: kubernetes-dashboard
+    spec:
+      serviceAccountName: kubernetes-dashboard-metrics-server
+      priorityClassName: "system-cluster-critical"
+      containers:
+        - name: metrics-server
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          image: registry.k8s.io/metrics-server/metrics-server:v0.7.2
+          imagePullPolicy: IfNotPresent
+          args:
+            - --secure-port=10250
+            - --cert-dir=/tmp
+            - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+            - --kubelet-use-node-status-port
+            - --metric-resolution=15s
+            - --kubelet-preferred-address-types=InternalIP
+            - --kubelet-insecure-tls
+          ports:
+          - name: https
+            protocol: TCP
+            containerPort: 10250
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /livez
+              port: https
+              scheme: HTTPS
+            initialDelaySeconds: 0
+            periodSeconds: 10
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /readyz
+              port: https
+              scheme: HTTPS
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+# Source: kubernetes-dashboard/templates/deployments/api.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-api
+    app.kubernetes.io/version: 1.13.0
+    app.kubernetes.io/component: api
+  annotations:
+    
+  name: kubernetes-dashboard-api
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: kubernetes-dashboard
+      app.kubernetes.io/part-of: kubernetes-dashboard
+      app.kubernetes.io/name: kubernetes-dashboard-api
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: kubernetes-dashboard-7.13.0
+        app.kubernetes.io/instance: kubernetes-dashboard
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/part-of: kubernetes-dashboard
+        app.kubernetes.io/name: kubernetes-dashboard-api
+        app.kubernetes.io/version: 1.13.0
+        app.kubernetes.io/component: api
+      annotations:
+        checksum/config: 9b7c1415ca8bb8e6a92da85422567ca92a9021a205f704f854fdbbea81e4ef17
+    spec:
+      containers:
+        - name: kubernetes-dashboard-api
+          image: "docker.io/kubernetesui/dashboard-api:1.13.0"
+          imagePullPolicy: IfNotPresent
+          args:
+            - --namespace=kubernetes-dashboard
+            - --metrics-scraper-service-name=kubernetes-dashboard-metrics-scraper
+
+          env:
+            - name: CSRF_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-dashboard-csrf
+                  key: private.key
+            - name: GOMAXPROCS
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+                  divisor: "1"
+            - name: GOMEMLIMIT
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  divisor: "1"
+          ports:
+          
+            - containerPort: 8000
+              name: api
+              protocol: TCP
+          volumeMounts:
+          
+            - mountPath: /tmp
+              name: tmp-volume
+          securityContext:
+          
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsGroup: 2001
+            runAsUser: 1001
+          resources:
+          
+            limits:
+              cpu: 250m
+              memory: 400Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+
+      automountServiceAccountToken: true
+      securityContext:
+      
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+      
+        - emptyDir: {}
+          name: tmp-volume
+      serviceAccountName: kubernetes-dashboard-api
+---
+# Source: kubernetes-dashboard/templates/deployments/auth.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-auth
+    app.kubernetes.io/version: 1.13.0
+    app.kubernetes.io/component: auth
+  annotations:
+    
+  name: kubernetes-dashboard-auth
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: kubernetes-dashboard
+      app.kubernetes.io/part-of: kubernetes-dashboard
+      app.kubernetes.io/name: kubernetes-dashboard-auth
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: kubernetes-dashboard-7.13.0
+        app.kubernetes.io/instance: kubernetes-dashboard
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/part-of: kubernetes-dashboard
+        app.kubernetes.io/name: kubernetes-dashboard-auth
+        app.kubernetes.io/version: 1.3.0
+        app.kubernetes.io/component: auth
+      annotations:
+        checksum/config: c8919dedfe8acb36d36cc754f6e84497f07b6c184ecca48fb4430f3248b961ad
+    spec:
+      containers:
+        - name: kubernetes-dashboard-auth
+          image: "docker.io/kubernetesui/dashboard-auth:1.3.0"
+          imagePullPolicy: IfNotPresent
+          args:
+
+          env:
+            - name: CSRF_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-dashboard-csrf
+                  key: private.key
+            - name: GOMAXPROCS
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+                  divisor: "1"
+            - name: GOMEMLIMIT
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  divisor: "1"
+          ports:
+          
+            - containerPort: 8000
+              name: auth
+              protocol: TCP
+          volumeMounts:
+          
+            - mountPath: /tmp
+              name: tmp-volume
+          securityContext:
+          
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsGroup: 2001
+            runAsUser: 1001
+          resources:
+          
+            limits:
+              cpu: 250m
+              memory: 400Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+
+      automountServiceAccountToken: true
+      securityContext:
+      
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+      
+        - emptyDir: {}
+          name: tmp-volume
+---
+# Source: kubernetes-dashboard/templates/deployments/metrics-scraper.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-metrics-scraper
+    app.kubernetes.io/version: 1.2.2
+    app.kubernetes.io/component: metrics-scraper
+  annotations:
+    
+  name: kubernetes-dashboard-metrics-scraper
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: kubernetes-dashboard
+      app.kubernetes.io/part-of: kubernetes-dashboard
+      app.kubernetes.io/name: kubernetes-dashboard-metrics-scraper
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: kubernetes-dashboard-7.13.0
+        app.kubernetes.io/instance: kubernetes-dashboard
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/part-of: kubernetes-dashboard
+        app.kubernetes.io/name: kubernetes-dashboard-metrics-scraper
+        app.kubernetes.io/version: 1.2.2
+        app.kubernetes.io/component: metrics-scraper
+      annotations:
+    spec:
+      containers:
+        - name: kubernetes-dashboard-metrics-scraper
+          image: "docker.io/kubernetesui/dashboard-metrics-scraper:1.2.2"
+          imagePullPolicy: IfNotPresent
+
+          env:
+            - name: GOMAXPROCS
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+                  divisor: "1"
+            - name: GOMEMLIMIT
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  divisor: "1"
+          ports:
+          
+            - containerPort: 8000
+              protocol: TCP
+          volumeMounts:
+          
+            - mountPath: /tmp
+              name: tmp-volume
+          securityContext:
+          
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsGroup: 2001
+            runAsUser: 1001
+          resources:
+          
+            limits:
+              cpu: 250m
+              memory: 400Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          livenessProbe:
+          
+            httpGet:
+              path: /
+              port: 8000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 30
+
+      automountServiceAccountToken: true
+      securityContext:
+      
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+      
+        - emptyDir: {}
+          name: tmp-volume
+
+      serviceAccountName: kubernetes-dashboard-metrics-scraper
+---
+# Source: kubernetes-dashboard/templates/deployments/web.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    helm.sh/chart: kubernetes-dashboard-7.13.0
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard-web
+    app.kubernetes.io/version: 1.7.0
+    app.kubernetes.io/component: web
+  annotations:
+    
+  name: kubernetes-dashboard-web
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: kubernetes-dashboard
+      app.kubernetes.io/part-of: kubernetes-dashboard
+      app.kubernetes.io/name: kubernetes-dashboard-web
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: kubernetes-dashboard-7.13.0
+        app.kubernetes.io/instance: kubernetes-dashboard
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/part-of: kubernetes-dashboard
+        app.kubernetes.io/name: kubernetes-dashboard-web
+        app.kubernetes.io/version: 1.7.0
+        app.kubernetes.io/component: web
+      annotations:
+    spec:
+      containers:
+        - name: kubernetes-dashboard-web
+          image: "docker.io/kubernetesui/dashboard-web:1.7.0"
+          imagePullPolicy: IfNotPresent
+          args:
+            - --namespace=kubernetes-dashboard
+            - --settings-config-map-name=kubernetes-dashboard-web-settings
+
+          env:
+            - name: GOMAXPROCS
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.cpu
+                  divisor: "1"
+            - name: GOMEMLIMIT
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  divisor: "1"
+          ports:
+          
+            - containerPort: 8000
+              name: web
+              protocol: TCP
+          volumeMounts:
+          
+            - mountPath: /tmp
+              name: tmp-volume
+          securityContext:
+          
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+            runAsGroup: 2001
+            runAsUser: 1001
+          resources:
+          
+            limits:
+              cpu: 250m
+              memory: 400Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+
+      automountServiceAccountToken: true
+      securityContext:
+      
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+      
+        - emptyDir: {}
+          name: tmp-volume
+
+      serviceAccountName: kubernetes-dashboard-web
+---
+# Source: kubernetes-dashboard/charts/metrics-server/templates/apiservice.yaml
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  name: v1beta1.metrics.k8s.io
+  labels:
+    helm.sh/chart: metrics-server-3.12.2
+    app.kubernetes.io/name: metrics-server
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/version: "0.7.2"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  group: metrics.k8s.io
+  groupPriorityMinimum: 100
+  insecureSkipTLSVerify: true
+  service:
+    name: kubernetes-dashboard-metrics-server
+    namespace: kubernetes-dashboard
+    port: 443
+  version: v1beta1
+  versionPriority: 100
+---
+# Source: kubernetes-dashboard/templates/config/gateway.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# Source: kubernetes-dashboard/templates/extras/manifests.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# Source: kubernetes-dashboard/templates/extras/servicemonitor.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# Source: kubernetes-dashboard/templates/networking/ingress.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# Source: kubernetes-dashboard/templates/security/networkpolicy.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# Source: kubernetes-dashboard/templates/security/pdb.yaml
+# Copyright 2017 The Kubernetes Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.

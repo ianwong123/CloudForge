@@ -1,0 +1,90 @@
+# Create namespaces 
+
+# k8 dashboard 
+kind: Namespace
+apiVersion: v1
+metadata: 
+  name: kubernetes-dashboard
+  labels: 
+    name: kubernetes-dashboard
+    purpose: admin-tools
+    component: infrastructure
+---
+# NGINX Ingress Controller
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+  labels:
+    name: ingress-nginx
+    purpose: networking
+    component: infrastructure
+---
+# MinIO object storage
+kind: Namespace 
+apiVersion: v1
+metadata: 
+  name: storage
+  labels: 
+    name: minio
+    purpose: storage
+    component: infrastructure
+---
+# Redis Cache
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: redis
+  labels:
+    name: redis
+    purpose: cache
+    component: infrastructure
+
+---
+# PostgreSQL Database
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: postgresql
+  labels:
+    name: postgresql
+    purpose: database
+    component: infrastructure
+---
+# RabbitMQ
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: messaging
+  labels:
+    name: messaging
+    purpose: infrastructure
+---
+# Monitoring (Prometheus, Grafana, AlertManager)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels: 
+    name: monitoring
+    purpose: observability
+    component: infrastructure
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+  labels:
+    name: argocd
+    purpose: gitops
+    component: infrastructure
+---
+# Cert Manager
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: cert-manager
+#  labels:
+#    name: cert-manager
+#    purpose: security
+#    component: infrastructure
