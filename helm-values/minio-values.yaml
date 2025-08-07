@@ -14,7 +14,7 @@ consoleService:
 auth:
   rootUser: "admin"
   existingSecret: "minio-secret"
-  existingSecretPasswordKey: "minio-pwd"
+  existingSecretPasswordKey: "root-password"
 
 persistence:
   enabled: true
