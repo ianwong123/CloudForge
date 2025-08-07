@@ -1,0 +1,46 @@
+global: 
+  postgresql:
+    auth: 
+      existingSecret: postgresql-secret
+    secretkeys:
+      adminPasswordKey: POSTGRES_PASSWORD
+      userPasswordKey: POSTGRES_PASSWORD
+    database: POSTGRES_DB
+    username: POSTGRES_USER
+      
+service: 
+  type: ClusterIP
+  ports: 
+    postgresql: 5432
+
+primary:
+  resources:
+    requests: 
+      cpu: "128Mi"
+      memory: "100m"
+    limits:
+      cpu: "1Gi"
+      memory: "1000m"
+  persistence:
+    enabled: true
+    size: "20Gi"
+    storageClass: ""
+  
+  # Check health of containers
+  livenessProbe: 
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+
+metrics:
+  enabled: true
+  serviceMonitor: 
+    enabled: true
+  prometheusRule: 
+    enabled: false
+
+networkPolicy:
+  enabled: false
+
