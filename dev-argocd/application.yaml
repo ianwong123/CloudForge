@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudforge-argocd-application
+  namespace: argocd
+spec: 
+  project: default
+
+  source:
+    repoURL: https://github.com/ianwong123/CloudForge.git
+    targetRevision: HEAD
+    path: k8s-manifests
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: default 
+
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
