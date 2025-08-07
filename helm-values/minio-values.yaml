@@ -12,7 +12,7 @@ consoleService:
   port: 9001
   nodePort: 30901
 auth:
-  rootUser: "admin"
+  existingSecretUserKey: "root-user"
   existingSecret: "minio-secret"
   existingSecretPasswordKey: "root-password"
 
